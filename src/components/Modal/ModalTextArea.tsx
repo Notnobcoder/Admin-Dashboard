@@ -1,11 +1,11 @@
 import { UseFormRegister, FieldValues } from "react-hook-form";
 
 type ModelTextAreaProps = {
-  heading: string;
-  placeholder: string;
-  width: string;
-  id: string;
-  register: UseFormRegister<FieldValues>;
+  heading?: string;
+  placeholder?: string;
+  width?: string;
+  id?: string;
+  register?: UseFormRegister<FieldValues>;
 };
 
 export const ModelTextArea: React.FC<ModelTextAreaProps> = ({
@@ -19,6 +19,7 @@ export const ModelTextArea: React.FC<ModelTextAreaProps> = ({
     <div className={`my-3`}>
       <h3 className="my-2 font-normal text-lg">{heading}</h3>
       <textarea
+        /* @ts-ignore */
         {...register(id, { required: true })}
         className={`${
           width || "w-full"

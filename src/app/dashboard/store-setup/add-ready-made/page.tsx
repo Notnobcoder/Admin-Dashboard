@@ -43,7 +43,7 @@ const CameraCustomSvg = () => {
 export default function AddReadyMade() {
   const [selectedDataSize, setSelectedDataSize] = useState(1);
 
-  const handleValue = (data) => {
+  const handleValue = (data: any) => {
     console.log("clicked");
     console.log(data);
   };

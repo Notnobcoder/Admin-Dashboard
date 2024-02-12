@@ -5,16 +5,26 @@ import { ModalUploadLandscape } from "@/components/Modal/ModalUploadLandscape";
 import { Button, useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
 import { type ReactElement } from "react";
+import { useForm } from "react-hook-form";
 import { SlPencil } from "react-icons/sl";
 
 export interface AboutProps {}
 
 export function About(props: AboutProps): ReactElement {
   const { isOpen, onOpenChange, onOpen } = useDisclosure();
+  const { register } = useForm();
   const ModalContent = (
     <div>
-      <ModalInput heading="Title" placeholder="Enter Price" width={"w-full"} />
+      <ModalInput
+        id="title"
+        register={register}
+        heading="Title"
+        placeholder="Enter Price"
+        width={"w-full"}
+      />
       <ModelTextArea
+        register={register}
+        id="description"
         heading="Description"
         placeholder="Type Description"
         width={"w-full"}

@@ -1,11 +1,11 @@
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
 type ModalInputProps = {
-  heading: string;
-  placeholder: string;
-  width: string;
-  id: string;
-  register: UseFormRegister<FieldValues>;
+  heading?: string;
+  placeholder?: string;
+  width?: string;
+  id?: string;
+  register?: UseFormRegister<FieldValues>;
 };
 
 export const ModalInput: React.FC<ModalInputProps> = ({
@@ -19,6 +19,7 @@ export const ModalInput: React.FC<ModalInputProps> = ({
     <div className={`my-3`}>
       <h3 className="my-2 font-normal text-lg">{heading}</h3>
       <input
+        /* @ts-ignore */
         {...register(id, { required: true })}
         id={id}
         className={`${

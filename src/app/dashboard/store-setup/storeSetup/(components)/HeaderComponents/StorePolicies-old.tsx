@@ -3,6 +3,7 @@ import { ModelTextArea } from "@/components/Modal/ModalTextArea";
 import { Button, useDisclosure } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useState, type ReactElement } from "react";
+import { useForm } from "react-hook-form";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { LuPencil } from "react-icons/lu";
 
@@ -74,10 +75,13 @@ function FAQ() {
   const toggleActive = (id: number) => {
     setActive((prevActive) => (prevActive === id ? 0 : id));
   };
+  const { register } = useForm();
 
   const modalContent = (
     <div className="px-10 ">
       <ModelTextArea
+        id="questions"
+        register={register}
         heading="Frequently Asked Questions"
         placeholder="Enter Store Frequently Asked Questions"
         width={"w-full"}
